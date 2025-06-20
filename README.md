@@ -1,49 +1,187 @@
-# Project Title
+# Calculatrice Python avec Interface Graphique et CI/CD
 
-Refactored forked Simple Calculator by python
+Application de calculatrice moderne développée en Python avec interface graphique Tkinter, incluant des tests complets et une intégration continue dans le cadre de mes études en informatique.
 
-# Getting started
+## Fonctionnalités
 
-<ul> 
-<li> This Program run on both Windows and Linux operating system by using pycharm, anaconda 3 or all other python editor with the python version 3.x  </li>
-<li> This software is developed by python 3.x </li>
-<li> Used tkinter module for the Graphical User Interface </li>
-<li> It performs  Addition, Subtraction, Multiplication and Division only for two numbers </li>
-<li> It is more secure which means you may not enter other anything except the numerical values </li>
-<li> It is more relevant and easy to use for an user </li>
-</ul>
+- **Interface Graphique**: Interface utilisateur intuitive développée avec Tkinter
+- **Opérations de Base**: Addition, soustraction, multiplication et division
+- **Validation des Entrées**: Validation robuste des nombres (entiers, décimaux, négatifs)
+- **Gestion d'Erreurs**: Gestion complète des erreurs incluant la protection contre la division par zéro
+- **Tests Automatisés**: Couverture de tests complète avec pytest
+- **Pipeline CI/CD**: Pipeline Jenkins pour les tests et déploiement automatisés
+- **Qualité du Code**: Intégration du linting avec flake8
 
-# Prerequisites
+## Structure du Projet
 
-<ul>
-<li>You need to install python version 3.x. you may download Python version from their official website: ../ https://www.python.org/downloads/ <br/>
-or you may download a complete package by downloading anaconda: ../ https://www.anaconda.com/download/ <br/>
-</li>
-<li> One editor can be a good one. (i.e., pycharm, anaconda3 etc or any other that you can choice). Download pycharm:  ../ https://www.jetbrains.com/pycharm/download/#section=windows </li>
-</ul>
+```
+├── src/
+│   ├── __init__.py
+│   ├── calculator.py      # Logique de calcul
+│   ├── gui.py            # Interface graphique
+│   └── validator.py      # Utilitaires de validation
+├── tests/
+│   ├── __init__.py
+│   ├── test_calculator.py
+│   ├── test_gui.py
+│   └── test_validator.py
+├── main.py               # Point d'entrée de l'application
+├── requirements.txt      # Dépendances Python
+├── pytest.ini          # Configuration des tests
+├── Jenkinsfile          # Pipeline CI/CD
+└── README.md
+```
 
-For Linux
+## Prérequis
 
-<ul> 
-<li> To install both python and any text editor like pycharm you should do some execution of command line on the terminal.  </li>
+- **Python 3.9+** : Téléchargeable depuis [python.org](https://www.python.org/downloads/)
+- **pip** : Gestionnaire de paquets Python (inclus avec Python)
 
-</ul>
+### Pour le Développement
+- **Git** : Système de contrôle de version
+- **IDE/Éditeur** : PyCharm, VS Code, ou tout éditeur compatible Python
 
-# Built in
+## Installation
 
-<ul> <li> python 3.x  <br/></li> <li> tkinter python <br/> </li> </ul>
+1. **Cloner le dépôt**
+   ```bash
+   git clone <url-du-depot>
+   cd calculatrice-python
+   ```
 
-# Contribution
+2. **Créer un environnement virtuel**
+   ```bash
+   python -m venv venv
+   ```
 
-Only Belongs to the <b>Author </b>
+3. **Activer l'environnement virtuel**
+   
+   **Windows :**
+   ```bash
+   venv\Scripts\activate
+   ```
+   
+   **Linux/macOS :**
+   ```bash
+   source venv/bin/activate
+   ```
 
-# Author
+4. **Installer les dépendances**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Pranta Sarker <br/>
-Department of Computer Science and Engineering <br/>
-North East University Bangladesh <br/>
-Sylhet, Bangladesh <br/>
+## Utilisation
 
-# Acknowledgement
+### Lancement de l'Application
 
-<ul> <li> Stackoverflow  <br/> </li> <li> Related blogs <br/> </li> <li> etc </li> </ul>
+```bash
+python main.py
+```
+
+### Exécution des Tests
+
+```bash
+# Exécuter tous les tests
+pytest
+
+# Tests avec rapport de couverture
+pytest --cov=src --cov-report=html
+
+# Exécuter un fichier de test spécifique
+pytest tests/test_calculator.py
+```
+
+### Vérification du Code
+
+```bash
+flake8 src tests --max-line-length=88 --exclude=venv
+```
+
+## Interface de l'Application
+
+La calculatrice propose :
+- Deux champs de saisie pour les nombres
+- Quatre boutons d'opération (+, -, *, /)
+- Affichage du résultat avec opérations color-codées
+- Bouton d'informations
+
+### Formats de Nombres Supportés
+- Entiers : `123`, `-456`
+- Décimaux : `123.45`, `-67.89`
+- Décimaux avec point initial : `.123`
+- Notation scientifique : `1.23e-4`
+
+## Pipeline CI/CD
+
+Le projet inclut une pipeline Jenkins qui :
+1. Récupère le code source
+2. Configure l'environnement Python
+3. Installe les dépendances
+4. Exécute le linting du code
+5. Lance tous les tests
+6. Génère les rapports de couverture
+7. Publie les résultats des tests
+8. Envoie des notifications email en cas d'échec
+
+## Tests
+
+Le projet maintient une couverture de tests complète :
+- **Tests Unitaires** : Fonctionnalités du calculateur
+- **Tests d'Intégration** : Composants de l'interface graphique
+- **Tests de Validation** : Logique de validation des entrées
+- **Tests de Gestion d'Erreurs** : Scénarios d'exception
+
+## Qualité du Code
+
+- **Linting** : flake8 pour l'application des standards de code
+- **Annotations de Type** : Typage statique pour une meilleure documentation
+- **Documentation** : Docstrings en français pour toutes les méthodes
+- **Gestion d'Erreurs** : Gestion complète des exceptions
+
+## Développement
+
+### Configuration pour le Développement
+
+```bash
+# Installer les dépendances de développement
+pip install -r requirements.txt
+
+# Exécuter les tests en mode surveillance
+pytest --cov=src --cov-report=term-missing -v
+```
+
+### Ajout de Nouvelles Fonctionnalités
+
+1. Créer une branche pour la fonctionnalité
+2. Implémenter les changements
+3. Ajouter des tests pour la nouvelle fonctionnalité
+4. S'assurer que tous les tests passent
+5. Vérifier le linting du code
+
+## Architecture
+
+L'application suit un pattern d'architecture propre :
+- **Modèle** : Classe `Calculator` pour la logique métier
+- **Vue** : Classe `CalculatorGUI` pour l'interface utilisateur
+- **Validation** : Classe `NumberValidator` pour la validation des entrées
+- **Séparation des Responsabilités** : Chaque composant a une responsabilité unique
+
+## Défis Techniques Rencontrés
+
+Durant le développement, j'ai travaillé sur :
+- L'intégration de Tkinter pour une interface utilisateur responsive
+- L'implémentation de tests unitaires et d'intégration robustes
+- La mise en place d'une pipeline CI/CD avec Jenkins
+- La gestion des erreurs et validation des entrées utilisateur
+- L'application des bonnes pratiques de développement Python
+
+## Améliorations Futures
+
+- Ajout d'opérations mathématiques avancées (puissance, racine carrée)
+- Historique des calculs
+- Thèmes d'interface personnalisables
+- Export des résultats
+- Mode calculatrice scientifique
+
+Ce projet m'a permis d'approfondir mes connaissances en développement Python, tests automatisés, et DevOps, constituant une excellente base pour mes projets futurs en ingénierie logicielle.
