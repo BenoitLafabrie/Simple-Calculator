@@ -38,30 +38,35 @@ Application de calculatrice moderne développée en Python avec interface graphi
 - **pip** : Gestionnaire de paquets Python (inclus avec Python)
 
 ### Pour le Développement
+
 - **Git** : Système de contrôle de version
 - **IDE/Éditeur** : PyCharm, VS Code, ou tout éditeur compatible Python
 
 ## Installation
 
 1. **Cloner le dépôt**
+
    ```bash
    git clone <url-du-depot>
    cd calculatrice-python
    ```
 
 2. **Créer un environnement virtuel**
+
    ```bash
    python -m venv venv
    ```
 
 3. **Activer l'environnement virtuel**
-   
+
    **Windows :**
+
    ```bash
    venv\Scripts\activate
    ```
-   
+
    **Linux/macOS :**
+
    ```bash
    source venv/bin/activate
    ```
@@ -101,12 +106,14 @@ flake8 src tests --max-line-length=88 --exclude=venv
 ## Interface de l'Application
 
 La calculatrice propose :
+
 - Deux champs de saisie pour les nombres
-- Quatre boutons d'opération (+, -, *, /)
+- Quatre boutons d'opération (+, -, \*, /)
 - Affichage du résultat avec opérations color-codées
 - Bouton d'informations
 
 ### Formats de Nombres Supportés
+
 - Entiers : `123`, `-456`
 - Décimaux : `123.45`, `-67.89`
 - Décimaux avec point initial : `.123`
@@ -115,6 +122,7 @@ La calculatrice propose :
 ## Pipeline CI/CD
 
 Le projet inclut une pipeline Jenkins qui :
+
 1. Récupère le code source
 2. Configure l'environnement Python
 3. Installe les dépendances
@@ -127,6 +135,7 @@ Le projet inclut une pipeline Jenkins qui :
 ## Tests
 
 Le projet maintient une couverture de tests complète :
+
 - **Tests Unitaires** : Fonctionnalités du calculateur
 - **Tests d'Intégration** : Composants de l'interface graphique
 - **Tests de Validation** : Logique de validation des entrées
@@ -162,6 +171,7 @@ pytest --cov=src --cov-report=term-missing -v
 ## Architecture
 
 L'application suit un pattern d'architecture propre :
+
 - **Modèle** : Classe `Calculator` pour la logique métier
 - **Vue** : Classe `CalculatorGUI` pour l'interface utilisateur
 - **Validation** : Classe `NumberValidator` pour la validation des entrées
@@ -170,6 +180,7 @@ L'application suit un pattern d'architecture propre :
 ## Défis Techniques Rencontrés
 
 Durant le développement, j'ai travaillé sur :
+
 - L'intégration de Tkinter pour une interface utilisateur responsive
 - L'implémentation de tests unitaires et d'intégration robustes
 - La mise en place d'une pipeline CI/CD avec Jenkins
@@ -183,5 +194,3 @@ Durant le développement, j'ai travaillé sur :
 - Thèmes d'interface personnalisables
 - Export des résultats
 - Mode calculatrice scientifique
-
-Ce projet m'a permis d'approfondir mes connaissances en développement Python, tests automatisés, et DevOps, constituant une excellente base pour mes projets futurs en ingénierie logicielle.
