@@ -27,12 +27,12 @@ pipeline {
                                 echo "Python non trouvé, installation nécessaire"
                                 # Sur Ubuntu/Debian
                                 if command -v apt-get >/dev/null 2>&1; then
-                                    sudo apt-get update
-                                    sudo apt-get install -y python3 python3-venv python3-pip
+                                    apt-get update
+                                    apt-get install -y python3 python3-venv python3-pip
                                     PYTHON_CMD=python3
                                 # Sur CentOS/RHEL
                                 elif command -v yum >/dev/null 2>&1; then
-                                    sudo yum install -y python3 python3-pip
+                                    yum install -y python3 python3-pip
                                     PYTHON_CMD=python3
                                 fi
                             fi
