@@ -1,5 +1,6 @@
 # Project Title
-Simple Calculator by python
+
+Refactored forked Simple Calculator by python
 
 # Getting started
 
@@ -13,6 +14,7 @@ Simple Calculator by python
 </ul>
 
 # Prerequisites
+
 <ul>
 <li>You need to install python version 3.x. you may download Python version from their official website: ../ https://www.python.org/downloads/ <br/>
 or you may download a complete package by downloading anaconda: ../ https://www.anaconda.com/download/ <br/>
@@ -28,17 +30,20 @@ For Linux
 </ul>
 
 # Built in
+
 <ul> <li> python 3.x  <br/></li> <li> tkinter python <br/> </li> </ul>
 
 # Contribution
+
 Only Belongs to the <b>Author </b>
 
 # Author
+
 Pranta Sarker <br/>
 Department of Computer Science and Engineering <br/>
 North East University Bangladesh <br/>
 Sylhet, Bangladesh <br/>
 
 # Acknowledgement
-<ul> <li> Stackoverflow  <br/> </li> <li> Related blogs <br/> </li> <li> etc </li> </ul>
 
+<ul> <li> Stackoverflow  <br/> </li> <li> Related blogs <br/> </li> <li> etc </li> </ul>
