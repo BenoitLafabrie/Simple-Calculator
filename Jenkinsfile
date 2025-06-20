@@ -17,7 +17,7 @@ pipeline {
                 script {
                     // Essayer différentes commandes Python selon l'OS
                     if (isUnix()) {
-                        sh '''
+                        sh '''#!/bin/bash
                             # Essayer python3, puis python, puis installer si nécessaire
                             if command -v python3 >/dev/null 2>&1; then
                                 PYTHON_CMD=python3
@@ -40,7 +40,7 @@ pipeline {
                             echo "Utilisation de: $PYTHON_CMD"
                             $PYTHON_CMD --version
                             $PYTHON_CMD -m venv venv
-                            source venv/bin/activate
+                            . venv/bin/activate
                             pip install --upgrade pip
                             pip install -r requirements.txt
                         '''
@@ -62,8 +62,8 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh '''
-                            source venv/bin/activate
+                        sh '''#!/bin/bash
+                            . venv/bin/activate
                             pip install flake8
                             flake8 src tests --max-line-length=88 --exclude=venv || echo "Linting warnings found"
                         '''
@@ -82,8 +82,8 @@ pipeline {
             steps {
                 script {
                     if (isUnix()) {
-                        sh '''
-                            source venv/bin/activate
+                        sh '''#!/bin/bash
+                            . venv/bin/activate
                             mkdir -p reports
                             python -m pytest --verbose --junit-xml=reports/junit.xml --cov=src --cov-report=html --cov-report=xml
                         '''
