@@ -134,9 +134,7 @@ pipeline {
                 ])
 
                 // Publication des résultats de tests
-                publishTestResults(
-                    testResultsPattern: 'reports/junit.xml'
-                )
+                junit 'reports/junit.xml'
             }
         }
     }
